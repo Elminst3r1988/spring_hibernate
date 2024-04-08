@@ -12,9 +12,13 @@ public class Car {
     private String model;
     @Column
     private int series;
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "car")
     private User owner;
+
+    @Override
+    public String toString() {
+        return model + ", series=" + series;
+    }
 
     public Car() {
     }
